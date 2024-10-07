@@ -16,6 +16,8 @@ docker compose up
 You might find the following resources useful.
 - [The LoopTree paper](https://arxiv.org/abs/2409.13625).
 - [Timeloop/Accelergy v4 documentation](https://timeloop.csail.mit.edu/v4).
+- [The PyTimeloop code](https://github.com/Accelergy-Project/timeloop-python).
+- [The Timeloop code](https://github.com/NVlabs/timeloop).
 
 ## Citation
 If you use LoopTree in your research, please cite the LoopTree paper.
