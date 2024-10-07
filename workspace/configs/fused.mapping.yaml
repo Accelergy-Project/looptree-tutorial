@@ -1,0 +1,35 @@
+mapping:
+  type: fused
+  nodes:
+  - type: storage
+    target: 0  # level 2 is bound to MainMemory
+    dspace: [Filter1, Filter2, Fmap1, Fmap3] #-------- node 2.a
+  - type: storage
+    target: 1  # level 1 is bound to GlobalBuffer
+    dspace: [Filter1, Filter2]
+  - type: temporal #---------------------------------- node 2.b
+    rank: P2
+    tile_shape: 1
+  - type: storage  #---------------------------------- node 2.c
+    target: 1  # level 1 is bound to GlobalBuffer
+    dspace: [Fmap1, Fmap2, Fmap3]
+  - type: sequential  #------------------------------- node 2.d
+    branches:
+    - - type: temporal
+        rank: C1
+        tile_shape: 1
+      - type: temporal
+        rank: M1
+        tile_shape: 1
+      - type: compute
+        einsum: Fc1
+        target: 2  # level 0 is bound to MACC
+    - - type: temporal
+        rank: C2
+        tile_shape: 1
+      - type: temporal
+        rank: M2
+        tile_shape: 1
+      - type: compute
+        einsum: Fc2
+        target: 2  # level 0 is bound to MACC
