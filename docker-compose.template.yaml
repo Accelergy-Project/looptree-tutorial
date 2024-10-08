@@ -34,7 +34,7 @@ version: '3'
 services:
   tutorial:
     hostname: tutorial
-    image: timeloopaccelergy/timeloop-accelergy-pytorch:latest-${DOCKER_ARCH}
+    image: timeloopaccelergy/accelergy-timeloop-infrastructure:latest-${DOCKER_ARCH}
     ports:
       - "8888:8888"
     volumes:
